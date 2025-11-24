@@ -1,0 +1,27 @@
+// opencode config for team7
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "tui": {
+    "scroll_speed": 3,
+    "scroll_acceleration": {
+      "enabled": true
+    }
+  },
+  "agent": {
+    "team7": {
+      "description": "team7 agent",
+      "mode": "primary",
+      "prompt": "{file:./team7.md}",
+      "temperature": 0.9,
+      "tools": {
+        "*": true
+      },
+      "permission": {
+        "edit": "ask",
+        "bash": "ask",
+        "webfetch": "ask"
+      }
+    }
+  }
+}

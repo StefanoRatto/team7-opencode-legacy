@@ -1,0 +1,45 @@
+diff --git a/packages/opencode/src/cli/cmd/tui/app.tsx b/packages/opencode/src/cli/cmd/tui/app.tsx
+index 33be73ca..291058e7 100644
+--- a/packages/opencode/src/cli/cmd/tui/app.tsx
++++ b/packages/opencode/src/cli/cmd/tui/app.tsx
+@@ -17,7 +17,7 @@ import { DialogHelp } from "./ui/dialog-help"
+ import { CommandProvider, useCommandDialog } from "@tui/component/dialog-command"
+ import { DialogAgent } from "@tui/component/dialog-agent"
+ import { DialogSessionList } from "@tui/component/dialog-session-list"
+-import { KeybindProvider } from "@tui/context/keybind"
++import { KeybindProvider, useKeybind } from "@tui/context/keybind"
+ import { ThemeProvider, useTheme } from "@tui/context/theme"
+ import { Home } from "@tui/routes/home"
+ import { Session } from "@tui/routes/session"
+@@ -158,6 +158,7 @@ function App() {
+   const { theme, mode, setMode } = useTheme()
+   const sync = useSync()
+   const exit = useExit()
++  const keybind = useKeybind()
+ 
+   createEffect(() => {
+     console.log(JSON.stringify(route.data))
+@@ -484,16 +485,16 @@ function App() {
+             <text fg={theme.textMuted}>{process.cwd().replace(Global.Path.home, "~")}</text>
+           </box>
+         </box>
+-        <Show when={false}>
++        <Show when={true}>
+           <box flexDirection="row" flexShrink={0}>
+             <text fg={theme.textMuted} paddingRight={1}>
+-              tab
+-            </text>
+-            <text fg={local.agent.color(local.agent.current().name)}>{""}</text>
+-            <text bg={local.agent.color(local.agent.current().name)} fg={theme.background} wrapMode={undefined}>
+-              <span style={{ bold: true }}> {local.agent.current().name.toUpperCase()}</span>
+-              <span> AGENT </span>
++              {keybind.print("agent_cycle")}
+             </text>
++            <box backgroundColor={local.agent.color(local.agent.current().name)} paddingLeft={1} paddingRight={1}>
++              <text fg={theme.backgroundPanel} attributes={TextAttributes.BOLD}>
++                {local.agent.current().name.toUpperCase()} AGENT
++              </text>
++            </box>
+           </box>
+         </Show>
+       </box>
