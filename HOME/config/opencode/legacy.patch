@@ -1,9 +1,9 @@
 diff --git a/packages/opencode/src/cli/cmd/tui/app.tsx b/packages/opencode/src/cli/cmd/tui/app.tsx
-index 33be73ca..99748794 100644
+index 7c72274a..63674b78 100644
 --- a/packages/opencode/src/cli/cmd/tui/app.tsx
 +++ b/packages/opencode/src/cli/cmd/tui/app.tsx
 @@ -484,7 +484,7 @@ function App() {
-             <text fg={theme.textMuted}>{process.cwd().replace(Global.Path.home, "~")}</text>
+             </text>
            </box>
          </box>
 -        <Show when={false}>
