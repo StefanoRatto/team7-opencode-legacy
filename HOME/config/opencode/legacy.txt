@@ -1,5 +1,5 @@
 -- prompt to create/update patch legacy.patch
-Create a patch file "legacy.patch" that brings back the "legacy" status bar, showing the primary agent name (in agent color) on the right. Refer to opencode v1.0.0-10 (not opencode v0.x.x) for reference. Do not create any additional documentation, just the patch file. Also, a previously working version of the patch is already available for reference (@legacy.patch), start from this version of legacy.patch and adapt it to the current version of the codebase.
+Create a patch file "legacy.patch" that brings back the "legacy" status bar, showing the primary agent name (in agent color) on the right. Refer to opencode v1.0.0-10 (not opencode v0.x.x) for reference. Do not create any additional documentation, just the patch file. Please make sure the agent label has the left-pointing triangle and that the agent lable is visible both when the sidebar is visible, as well as when it is not. GO!!
 
 -- ~/.zshrc
 #alias o="opencode"
